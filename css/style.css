@@ -2034,3 +2034,12 @@ body { background:#e6e7e5; color:#292a27; }
   .hero-title { font-size:clamp(1.85rem,7vw,2.45rem); line-height:1.08; }
   .hero-promo-img { height:auto; max-height:205px; }
 }
+
+/* The promotion artwork is portrait (2:3); let its frame follow that ratio. */
+.hero-promo-wrapper { width:min(100%,290px); max-width:290px; }
+.hero-promo-card { padding:8px; }
+.hero-promo-img { display:block; width:100%; height:auto; max-height:none; aspect-ratio:2 / 3; object-fit:cover; background:transparent; }
+@media(max-width:700px) {
+  .hero-promo-wrapper { width:min(78%,250px); max-width:250px; }
+  .hero-promo-img { height:auto; max-height:none; }
+}
