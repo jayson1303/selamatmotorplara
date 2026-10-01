@@ -240,7 +240,34 @@
             </div>
           </div>
 
-          <!-- Credit simulation sits with the product image and color options. -->
+          <div class="modal-product-copy">
+            <div class="modal-header-info">
+              <span class="modal-category-badge" id="modal-category-badge">Honda Series</span>
+              <h3 class="modal-product-title" id="modal-product-title">Honda BeAT CBS</h3>
+            </div>
+            <div class="modal-desc-box" id="modal-desc-box">
+              Deskripsi singkat motor...
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Price, credit simulation, and order action -->
+        <div class="modal-details">
+          <!-- Cash Price & Asuransi -->
+          <div class="modal-price-cash">
+            <div>
+              <div class="cash-label">Harga OTR Cash</div>
+              <small style="color: #64748B; font-size: 0.72rem;">OTR Palabuhanratu &amp; Sukabumi</small>
+            </div>
+            <div class="cash-value" id="modal-cash-price">Rp 0</div>
+          </div>
+
+          <div class="modal-insurance-box" id="modal-insurance-box" style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 8px 12px; margin-bottom: 16px; font-size: 0.8rem; color: #475569;">
+            <span><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Opsi Asuransi Cash: <strong id="modal-insurance-price" style="color: #1E293B;">-</strong></span>
+            <span>Total Cash + Asuransi: <strong id="modal-total-cash-price" style="color: var(--primary);">Rp 0</strong></span>
+          </div>
+
+          <!-- Credit Simulation Box -->
           <div class="credit-simulation-box">
             <div class="sim-box-header">
               <h4 class="sim-box-title">
@@ -277,33 +304,6 @@
               *Syarat dan ketentuan berlaku. Perhitungan cicilan riil mengacu pada data leasing resmi rekanan dealer kami.
             </p>
           </div>
-        </div>
-
-        <!-- Right: Product Information -->
-        <div class="modal-details">
-          <div class="modal-header-info">
-            <span class="modal-category-badge" id="modal-category-badge">Honda Series</span>
-            <h3 class="modal-product-title" id="modal-product-title">Honda BeAT CBS</h3>
-          </div>
-
-          <div class="modal-desc-box" id="modal-desc-box">
-            Deskripsi singkat motor...
-          </div>
-
-          <!-- Cash Price & Asuransi -->
-          <div class="modal-price-cash">
-            <div>
-              <div class="cash-label">Harga OTR Cash</div>
-              <small style="color: #64748B; font-size: 0.72rem;">OTR Palabuhanratu &amp; Sukabumi</small>
-            </div>
-            <div class="cash-value" id="modal-cash-price">Rp 0</div>
-          </div>
-
-          <div class="modal-insurance-box" id="modal-insurance-box" style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 8px 12px; margin-bottom: 16px; font-size: 0.8rem; color: #475569;">
-            <span><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Opsi Asuransi Cash: <strong id="modal-insurance-price" style="color: #1E293B;">-</strong></span>
-            <span>Total Cash + Asuransi: <strong id="modal-total-cash-price" style="color: var(--primary);">Rp 0</strong></span>
-          </div>
-
           <!-- Order CTA WhatsApp -->
           <button type="button" class="btn-wa-order" id="btn-modal-wa">
             <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp Sekarang

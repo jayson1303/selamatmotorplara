@@ -1967,6 +1967,7 @@ body { background:#282a27; color:#f3f2ee; }
 .product-card { background:#fff; color:#232522; }
 .product-card .product-name { color:#232522; }
 .modal-box { color:#1e293b; }
+.modal-product-copy { display:flex; flex-direction:column; gap:12px; }
 @media(max-width:767px) { .site-header .brand-title { color:#f3f2ee; } }
 
 /* Clear visual breaks between the long homepage sections. */
