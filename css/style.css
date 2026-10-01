@@ -2023,3 +2023,14 @@ body { background:#e6e7e5; color:#292a27; }
 .service-ribbon { border-top-color:#c9cbc7; border-bottom-color:#c9cbc7; }
 .section::before,.promo-feature-section::before,.site-footer::before { background:#b63229; }
 @media(max-width:767px) { .site-header .brand-title { color:#292a27; } }
+
+/* Keep the hero headline compact and show the complete promotion artwork. */
+.hero-title { font-size:clamp(1.9rem,3.2vw,3.15rem); line-height:1.08; letter-spacing:-.04em; }
+.hero-title span { display:inline-block; }
+.hero-promo-img { height:auto; max-height:310px; object-fit:contain; background:#f2f1ee; }
+.hero-promo-card { padding:12px; }
+@media(max-width:900px) { .hero-promo-img { max-height:260px; } }
+@media(max-width:700px) {
+  .hero-title { font-size:clamp(1.85rem,7vw,2.45rem); line-height:1.08; }
+  .hero-promo-img { height:auto; max-height:205px; }
+}
