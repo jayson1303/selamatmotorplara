@@ -2069,3 +2069,27 @@ body { background:#515350; color:#f4f3ef; }
 .exp-years { font-size:1.35rem; letter-spacing:.03em; }
 .exp-text { font-size:.8rem; letter-spacing:.12em; }
 @media(max-width:767px) { .site-header .brand-title { color:#f4f3ef; } }
+
+/* Restore the previous light gray background palette. */
+:root { --bg-body:#e6e7e5; --bg-card:#fff; --bg-surface:#f4f4f2; --text-main:#292a27; --text-muted:#666862; --text-light:#82847e; --border-color:#d2d4d0; }
+body { background:#e6e7e5; color:#292a27; }
+.site-header,.mobile-menu-drawer { background:rgba(230,231,229,.97); border-color:#c9cbc7; }
+.brand-title,.nav-link,.mobile-nav-link { color:#292a27; }
+.brand-sub,.section-desc { color:#666862; }
+.service-ribbon,.testimonials-section,.about-section,.contact-section,.promo-feature-section,.site-footer { background:#e6e7e5; color:#292a27; }
+.service-ribbon,.service-ribbon-grid>div,.section,.promo-feature-section,.site-footer,.hero-section { border-color:#c9cbc7; }
+.service-ribbon-grid strong,.section-title,.about-content,.contact-text-box h4,.social-links-title,.promo-feature-copy h2,.footer-brand h3,.footer-col h4 { color:#292a27; }
+.service-ribbon-grid small,.adv-info p,.contact-text-box p,.testi-author-city { color:#666862; }
+.section-title span,.section-tag,.promo-feature-section .section-tag { color:#ad3028; }
+.category-tabs .tab-btn { background:#f5f5f3; color:#4d4f49; border-color:#d2d4d0; }
+.category-tabs .tab-btn.active { background:#b63229; color:#fff; border-color:#b63229; }
+.about-advantages-grid .adv-card,.contact-card-item,.social-links-box,.testi-card { background:#fff; border-color:#d2d4d0; color:#292a27; }
+.adv-info h4,.testi-author-name,.testi-comment { color:#292a27; }
+.promo-feature-copy p { color:#666862; }
+.promo-feature-cards article { background:#f5f5f3; border-color:#d2d4d0; }
+.promo-feature-cards h3 { color:#292a27; }
+.promo-feature-cards p,.footer-brand p,.footer-links a,.footer-bottom { color:#666862; }
+.promo-feature-cards i { color:#ad3028; }
+.footer-bottom { border-color:#c9cbc7; }
+.section::before,.promo-feature-section::before,.site-footer::before { background:#b63229; }
+@media(max-width:767px) { .site-header .brand-title { color:#292a27; } }
