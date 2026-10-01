@@ -465,11 +465,14 @@ async function loadTestimonials() {
 
     const card = document.createElement("div");
     card.className = "testi-card";
-    card.innerHTML = `
+    const photoMarkup = item.foto ? `
       <div class="testi-img-box">
-        <img src="${item.foto || 'assets/img/logo/logo.png'}" alt="${item.nama}" class="testi-img" loading="lazy" onerror="this.src='assets/img/logo/logo.png'">
+        <img src="${item.foto}" alt="Foto testimoni ${item.nama}" class="testi-img" loading="lazy">
         <span class="testi-badge"><i class="fa-solid fa-circle-check"></i> Konsumen Terverifikasi</span>
       </div>
+    ` : "";
+    card.innerHTML = `
+      ${photoMarkup}
       <div class="testi-body">
         <div class="testi-top-meta">
           <div>
