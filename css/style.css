@@ -2024,6 +2024,9 @@ body { background:#e6e7e5; color:#292a27; }
 .section::before,.promo-feature-section::before,.site-footer::before { background:#b63229; }
 @media(max-width:767px) { .site-header .brand-title { color:#292a27; } }
 
+/* Keep the name badge inside the cropped about photo frame. */
+.about-experience-badge { bottom:16px; right:16px; z-index:2; }
+
 /* Keep the hero headline compact and show the complete promotion artwork. */
 .hero-title { font-size:clamp(1.9rem,3.2vw,3.15rem); line-height:1.08; letter-spacing:-.04em; }
 .hero-title span { display:inline-block; }
