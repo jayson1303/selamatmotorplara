@@ -2043,3 +2043,29 @@ body { background:#e6e7e5; color:#292a27; }
   .hero-promo-wrapper { width:min(78%,250px); max-width:250px; }
   .hero-promo-img { height:auto; max-height:none; }
 }
+
+/* Dark gray site background with light foreground text. */
+:root { --bg-body:#515350; --bg-card:#fff; --bg-surface:#5b5d59; --text-main:#f4f3ef; --text-muted:#d0d1cb; --text-light:#b6b8b1; --border-color:#6c6e69; }
+body { background:#515350; color:#f4f3ef; }
+.site-header,.mobile-menu-drawer { background:#515350; border-color:#6c6e69; }
+.brand-title,.nav-link,.mobile-nav-link { color:#f4f3ef; }
+.brand-sub,.section-desc,.service-ribbon-grid small,.adv-info p,.contact-text-box p,.testi-author-city { color:#d0d1cb; }
+.service-ribbon,.testimonials-section,.about-section,.contact-section,.promo-feature-section,.site-footer { background:#515350; color:#f4f3ef; }
+.service-ribbon,.service-ribbon-grid>div,.section,.promo-feature-section,.site-footer,.hero-section { border-color:#6c6e69; }
+.service-ribbon-grid strong,.section-title,.about-content,.contact-text-box h4,.social-links-title,.promo-feature-copy h2,.footer-brand h3,.footer-col h4 { color:#f4f3ef; }
+.section-title span,.section-tag,.promo-feature-section .section-tag { color:#f19b8f; }
+.category-tabs .tab-btn { background:#626460; color:#f0f0eb; border-color:#747671; }
+.category-tabs .tab-btn.active { background:#b63229; color:#fff; border-color:#b63229; }
+.about-advantages-grid .adv-card,.contact-card-item,.social-links-box,.testi-card { background:#626460; border-color:#747671; color:#f4f3ef; }
+.adv-info h4,.testi-author-name,.testi-comment { color:#f4f3ef; }
+.promo-feature-copy p { color:#d0d1cb; }
+.promo-feature-cards article { background:#626460; border-color:#747671; }
+.promo-feature-cards h3 { color:#f4f3ef; }
+.promo-feature-cards p,.footer-brand p,.footer-links a,.footer-bottom { color:#d0d1cb; }
+.promo-feature-cards i { color:#f1ad82; }
+.footer-bottom { border-color:#6c6e69; }
+.section::before,.promo-feature-section::before,.site-footer::before { background:#e26c5e; }
+.about-experience-badge { min-width:126px; }
+.exp-years { font-size:1.35rem; letter-spacing:.03em; }
+.exp-text { font-size:.8rem; letter-spacing:.12em; }
+@media(max-width:767px) { .site-header .brand-title { color:#f4f3ef; } }
