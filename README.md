@@ -17,6 +17,8 @@ Deploy rules dari `firestore.rules` dan `storage.rules`. Konten publik dapat dib
 
 Buka `/admin/login.html`. Halaman dashboard memakai Firebase Authentication untuk login, session, proteksi halaman, dan logout. Aktifkan provider Email/Password di Firebase Console dan gunakan akun admin yang sudah dibuat di project tersebut.
 
+Tab **Pengaturan Hero & Banner Promo** menyediakan tiga slot foto promo. Foto yang tersimpan di `hero/main.promoImages` akan berputar otomatis di homepage. Folder project saat ini hanya berisi satu foto promo yang unik; unggah dua foto tambahan melalui slot 2 dan 3 untuk mengaktifkan rotasi tiga foto.
+
 ## Kontak
 
 - WhatsApp: <https://wa.me/6285715787494>

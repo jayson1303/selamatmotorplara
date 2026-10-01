@@ -2,6 +2,7 @@
   "hero": {
     "backgroundUrl": "assets/img/hero/hero-bg.jpg",
     "promoImageUrl": "assets/img/hero/promo-banner.jpg",
+    "promoImages": ["assets/img/hero/promo-banner.jpg"],
     "promoActive": true,
     "title": "Dealer Resmi Sepeda Motor Honda",
     "subtitle": "Temukan motor untuk setiap perjalanan.",

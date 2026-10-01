@@ -25,6 +25,7 @@ let allTestimonials = [];
 let appSettings = null;
 let currentCategory = "all";
 let searchKeyword = "";
+let promoCarouselTimer = null;
 
 // DOM Elements
 const productsGrid = document.getElementById("products-grid");
@@ -156,14 +157,68 @@ function renderHero(hero) {
     heroCtaBtn.innerHTML = `<i class="fa-solid fa-motorcycle"></i> ${hero.ctaText}`;
   }
 
-  // Promo Banner Overlay Logic
+  // Promo carousel supports up to three images saved from the admin dashboard.
   if (heroPromoWrapper && heroPromoImg) {
-    if (hero.promoActive !== false && hero.promoImageUrl && hero.promoImageUrl.trim() !== "") {
-      heroPromoImg.src = hero.promoImageUrl;
+    const promoImages = (Array.isArray(hero.promoImages) ? hero.promoImages : [hero.promoImageUrl])
+      .filter((url) => typeof url === "string" && url.trim() !== "")
+      .slice(0, 3);
+    if (hero.promoActive !== false && promoImages.length) {
       heroPromoWrapper.style.display = "flex";
+      initPromoCarousel(promoImages, heroPromoImg);
     } else {
       heroPromoWrapper.style.display = "none";
+      if (promoCarouselTimer) window.clearInterval(promoCarouselTimer);
+      promoCarouselTimer = null;
     }
+  }
+}
+
+function initPromoCarousel(images, image) {
+  if (promoCarouselTimer) window.clearInterval(promoCarouselTimer);
+
+  const dots = document.getElementById("promo-carousel-dots");
+  const prev = document.getElementById("promo-carousel-prev");
+  const next = document.getElementById("promo-carousel-next");
+  let activeIndex = 0;
+
+  const renderDots = () => {
+    if (!dots) return;
+    dots.innerHTML = images.map((_, i) => `
+      <button type="button" class="promo-carousel-dot ${i === activeIndex ? "is-active" : ""}"
+        aria-label="Tampilkan foto promo ${i + 1}" aria-pressed="${i === activeIndex}"></button>
+    `).join("");
+    dots.querySelectorAll(".promo-carousel-dot").forEach((dot, i) => {
+      dot.addEventListener("click", () => showSlide(i));
+    });
+    dots.style.display = images.length > 1 ? "flex" : "none";
+  };
+
+  const showSlide = (index) => {
+    activeIndex = (index + images.length) % images.length;
+    image.classList.remove("is-active");
+    window.setTimeout(() => {
+      image.src = images[activeIndex];
+      image.alt = `Foto promo ${activeIndex + 1} SELAMATMOTORPLARA`;
+      requestAnimationFrame(() => image.classList.add("is-active"));
+    }, 160);
+    renderDots();
+  };
+
+  image.src = images[0];
+  image.alt = "Foto promo 1 SELAMATMOTORPLARA";
+  image.classList.add("is-active");
+  if (prev) {
+    prev.hidden = images.length < 2;
+    prev.onclick = () => showSlide(activeIndex - 1);
+  }
+  if (next) {
+    next.hidden = images.length < 2;
+    next.onclick = () => showSlide(activeIndex + 1);
+  }
+  renderDots();
+
+  if (images.length > 1) {
+    promoCarouselTimer = window.setInterval(() => showSlide(activeIndex + 1), 4500);
   }
 }
 

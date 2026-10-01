@@ -286,17 +286,27 @@
 
                 <!-- Promo Banner Overlay Upload -->
                 <div class="form-group">
-                  <label class="form-label">Foto Banner Promo Overlay</label>
+                  <label class="form-label">Foto Promo (maksimal 3 foto)</label>
                   <div style="margin-bottom: 8px;">
                     <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer;">
                       <input type="checkbox" id="hero-promo-active" checked>
-                      <span>Aktifkan & Tampilkan Banner Promo di Hero</span>
+                      <span>Aktifkan & Tampilkan Carousel Promo di Hero</span>
                     </label>
                   </div>
                   <input type="file" id="file-hero-promo" class="form-control" accept="image/*">
-                  <small style="color: #64748B;">Banner ini akan menimpa/overlay di sisi kanan hero.</small>
+                  <small style="color: #64748B;">Pilih hingga 3 foto rasio potret 2:3. Foto akan bergiliran tampil di sisi kanan hero.</small>
                   <div style="margin-top: 10px;">
                     <img id="preview-hero-promo" src="../assets/img/hero/promo-banner.jpg" style="max-height: 160px; border-radius: 8px; border: 1px solid #E2E8F0;" alt="Preview Promo">
+                  </div>
+                  <label for="file-hero-promo-2" class="form-label" style="margin-top: 16px;">Foto Promo 2</label>
+                  <input type="file" id="file-hero-promo-2" class="form-control" accept="image/*">
+                  <div style="margin-top: 10px;">
+                    <img id="preview-hero-promo-2" src="" style="display:none; max-height: 160px; border-radius: 8px; border: 1px solid #E2E8F0;" alt="Preview Promo 2">
+                  </div>
+                  <label for="file-hero-promo-3" class="form-label" style="margin-top: 16px;">Foto Promo 3</label>
+                  <input type="file" id="file-hero-promo-3" class="form-control" accept="image/*">
+                  <div style="margin-top: 10px;">
+                    <img id="preview-hero-promo-3" src="" style="display:none; max-height: 160px; border-radius: 8px; border: 1px solid #E2E8F0;" alt="Preview Promo 3">
                   </div>
                 </div>
               </div>

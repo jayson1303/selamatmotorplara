@@ -2028,6 +2028,19 @@ body { background:#e6e7e5; color:#292a27; }
 /* Keep the name badge inside the cropped about photo frame. */
 .about-experience-badge { bottom:16px; right:16px; z-index:2; }
 
+.hero-promo-media { position:relative; width:100%; aspect-ratio:2 / 3; overflow:hidden; border-radius:6px; background:#e6e7e5; }
+.hero-promo-img { position:absolute; inset:0; width:100%; height:100%; max-height:none; object-fit:cover; opacity:0; transition:opacity .65s ease; }
+.hero-promo-img.is-active { opacity:1; }
+.promo-carousel-arrow { position:absolute; z-index:2; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:rgba(24,25,23,.72); color:#fff; transition:background .2s, transform .2s; }
+.promo-carousel-arrow:hover { background:#b63229; transform:translateY(-50%) scale(1.06); }
+.promo-carousel-prev { left:10px; }
+.promo-carousel-next { right:10px; }
+.promo-carousel-dots { display:flex; justify-content:center; align-items:center; gap:7px; padding:8px 0 2px; }
+.promo-carousel-dot { width:8px; height:8px; border-radius:50%; background:#c9cbc7; transition:all .2s; }
+.promo-carousel-dot.is-active { width:21px; border-radius:8px; background:#b63229; }
+.promo-carousel-arrow[hidden] { display:none; }
+@media(prefers-reduced-motion:reduce) { .hero-promo-img,.promo-carousel-arrow,.promo-carousel-dot { transition:none; } }
+
 /* Keep the hero headline compact and show the complete promotion artwork. */
 .hero-title { font-size:clamp(1.9rem,3.2vw,3.15rem); line-height:1.08; letter-spacing:-.04em; }
 .hero-title span { display:inline-block; }

@@ -22,12 +22,12 @@ export async function initAdminHero() {
   if (!form) return;
 
   let currentBackgroundUrl = "";
-  let currentPromoImageUrl = "";
+  let currentPromoImageUrls = [];
 
   const fileHeroBg = document.getElementById("file-hero-bg");
   const previewHeroBg = document.getElementById("preview-hero-bg");
-  const fileHeroPromo = document.getElementById("file-hero-promo");
-  const previewHeroPromo = document.getElementById("preview-hero-promo");
+  const promoFiles = [1, 2, 3].map((slot) => document.getElementById(slot === 1 ? "file-hero-promo" : `file-hero-promo-${slot}`));
+  const promoPreviews = [1, 2, 3].map((slot) => document.getElementById(slot === 1 ? "preview-hero-promo" : `preview-hero-promo-${slot}`));
 
   // Load current hero data
   try {
@@ -42,7 +42,7 @@ export async function initAdminHero() {
     }
 
     currentBackgroundUrl = data.backgroundUrl || "";
-    currentPromoImageUrl = data.promoImageUrl || "";
+    currentPromoImageUrls = (Array.isArray(data.promoImages) ? data.promoImages : [data.promoImageUrl || ""]).slice(0, 3);
 
     // Populate inputs
     document.getElementById("hero-input-title").value = data.title || "";
@@ -55,10 +55,12 @@ export async function initAdminHero() {
       previewHeroBg.src = formatAdminImageUrl(currentBackgroundUrl);
       previewHeroBg.style.display = "block";
     }
-    if (currentPromoImageUrl && previewHeroPromo) {
-      previewHeroPromo.src = formatAdminImageUrl(currentPromoImageUrl);
-      previewHeroPromo.style.display = "block";
-    }
+    currentPromoImageUrls.forEach((url, index) => {
+      if (url && promoPreviews[index]) {
+        promoPreviews[index].src = formatAdminImageUrl(url);
+        promoPreviews[index].style.display = "block";
+      }
+    });
 
   } catch (e) {
     console.error("Error loading hero data:", e);
@@ -72,12 +74,12 @@ export async function initAdminHero() {
     maxSizeBytes: 140 * 1024
   });
 
-  setupCompressedPreview(fileHeroPromo, previewHeroPromo, {
+  promoFiles.forEach((file, index) => setupCompressedPreview(file, promoPreviews[index], {
     maxWidth: 1200,
-    maxHeight: 800,
+    maxHeight: 1800,
     quality: 0.8,
-    maxSizeBytes: 120 * 1024
-  });
+    maxSizeBytes: 180 * 1024
+  }));
 
   // Form submit
   form.addEventListener("submit", async (e) => {
@@ -94,12 +96,10 @@ export async function initAdminHero() {
       const promoActive = document.getElementById("hero-promo-active").checked;
 
       let bgUrl = currentBackgroundUrl;
-      let promoUrl = currentPromoImageUrl;
+      const promoUrls = [...currentPromoImageUrls];
 
       const bgFile = fileHeroBg?.files?.[0];
-      const promoFile = fileHeroPromo?.files?.[0];
-
-      // Upload in parallel if both are selected
+      // Upload selected promo images in parallel, keeping existing slots intact.
       const uploadTasks = [];
 
       if (bgFile) {
@@ -118,25 +118,25 @@ export async function initAdminHero() {
         );
       }
 
-      if (promoFile) {
-        uploadTasks.push(
-          (async () => {
-            const promoPath = `hero/promo_${Date.now()}_${promoFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
-            promoUrl = await uploadWithFallback(promoFile, promoPath, {
-              preCompressed: fileHeroPromo._compressed,
-              maxWidth: 1200,
-              maxHeight: 800,
-              quality: 0.8,
-              maxSizeBytes: 120 * 1024
-            });
-            currentPromoImageUrl = promoUrl;
-          })()
-        );
-      }
+      promoFiles.forEach((fileInput, index) => {
+        const promoFile = fileInput?.files?.[0];
+        if (!promoFile) return;
+        uploadTasks.push((async () => {
+          const promoPath = `hero/promo_${index + 1}_${Date.now()}_${promoFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
+          promoUrls[index] = await uploadWithFallback(promoFile, promoPath, {
+            preCompressed: fileInput._compressed,
+            maxWidth: 1200,
+            maxHeight: 1800,
+            quality: 0.8,
+            maxSizeBytes: 180 * 1024
+          });
+        })());
+      });
 
       if (uploadTasks.length > 0) {
         await Promise.all(uploadTasks);
       }
+      const savedPromoUrls = promoUrls.filter(Boolean).slice(0, 3);
 
       const updateData = {
         title,
@@ -145,7 +145,8 @@ export async function initAdminHero() {
         ctaText,
         promoActive,
         backgroundUrl: bgUrl,
-        promoImageUrl: promoUrl,
+        promoImageUrl: savedPromoUrls[0] || "",
+        promoImages: savedPromoUrls,
         updatedAt: new Date().toISOString()
       };
 
@@ -153,7 +154,7 @@ export async function initAdminHero() {
 
       // Clear file inputs so re-submitting doesn't re-upload
       if (fileHeroBg) fileHeroBg.value = "";
-      if (fileHeroPromo) fileHeroPromo.value = "";
+      promoFiles.forEach((file) => { if (file) file.value = ""; });
 
       await adminAlert("Pengaturan Hero & Banner Promo berhasil disimpan!", "Berhasil Disimpan", "success");
 
