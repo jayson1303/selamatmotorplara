@@ -1968,3 +1968,22 @@ body { background:#282a27; color:#f3f2ee; }
 .product-card .product-name { color:#232522; }
 .modal-box { color:#1e293b; }
 @media(max-width:767px) { .site-header .brand-title { color:#f3f2ee; } }
+
+/* Clear visual breaks between the long homepage sections. */
+.hero-section { border-bottom:1px solid #555750; }
+.service-ribbon { border-top:1px solid #555750; border-bottom:1px solid #555750; }
+.section,.promo-feature-section,.site-footer { position:relative; border-top:1px solid #555750; }
+.section::before,.promo-feature-section::before,.site-footer::before {
+  content:"";
+  position:absolute;
+  top:-2px;
+  left:max(24px, calc((100% - 1152px) / 2));
+  width:72px;
+  height:3px;
+  background:#d24a3d;
+  border-radius:2px;
+}
+.site-footer { border-color:#555750; }
+@media(max-width:767px) {
+  .section::before,.promo-feature-section::before,.site-footer::before { left:20px; width:54px; }
+}
