@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Siapa saja boleh membaca (READ) data untuk landing page publik
+    // Katalog dan konten dibaca publik; hanya akun admin proyek yang dapat menulis.
+    match /{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.auth.token.email == 'andra@admin.com';
+    }
+  }
+}

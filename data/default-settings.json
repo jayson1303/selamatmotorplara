@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "backgroundUrl": "assets/img/hero/hero-bg.jpg",
+    "promoImageUrl": "assets/img/hero/promo-banner.jpg",
+    "promoActive": true,
+    "title": "Dealer Resmi Sepeda Motor Honda",
+    "subtitle": "Temukan motor untuk setiap perjalanan.",
+    "tagline": "Pilih motor Honda yang cocok untuk rutinitas Anda. Konsultasikan langsung dengan tim kami.",
+    "ctaText": "Lihat Produk Kami"
+  },
+  "about": {
+    "title": "SELAMATMOTORPLARA",
+    "deskripsi": "SELAMATMOTORPLARA membantu warga Palabuhanratu dan sekitarnya memilih sepeda motor Honda dengan informasi yang jelas dan layanan yang dekat.",
+    "foto": "assets/img/about/about.jpg",
+    "keunggulan": [
+      {
+        "icon": "fa-award",
+        "title": "Dealer Resmi Honda",
+        "desc": "100% unit resmi Astra Honda Motor bergaransi resmi pabrikan."
+      },
+      {
+        "icon": "fa-bolt",
+        "title": "Proses Cepat & Mudah",
+        "desc": "Persyaratan mudah, proses kilat tanpa ribet, data dibantu sampai ACC."
+      },
+      {
+        "icon": "fa-percent",
+        "title": "DP & Angsuran Ringan",
+        "desc": "Tersedia paket kredit DP minim dan cicilan paling terjangkau se-Palabuhanratu."
+      },
+      {
+        "icon": "fa-shield-halved",
+        "title": "Aman & Terpercaya",
+        "desc": "STNK & BPKB terjamin aman, siap antar unit langsung ke rumah Anda."
+      }
+    ]
+  },
+  "contact": {
+    "alamat": "Palabuhanratu, Kab. Sukabumi, Jawa Barat (Depan / Dekat Alun-alun Palabuhanratu)",
+    "jamOperasional": "Senin - Sabtu: 08.00 - 17.00 WIB | Minggu: 09.00 - 15.00 WIB",
+    "whatsappNumber": "6285715787494",
+    "whatsappLink": "https://wa.me/6285715787494",
+    "instagram": "https://www.instagram.com/el_premmm?stkn=MW5paHpodGdqMDI5MQ==",
+    "tiktok": "https://www.tiktok.com/@andraselamatmotorplara?_r=1&_t=ZS-9A67WanIVXD",
+    "facebook": "https://www.facebook.com/share/14tu7EkBkFd/",
+    "googleMapsEmbed": "https://maps.google.com/maps?q=Pelabuhanratu%20Sukabumi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  },
+  "waTemplate": {
+    "template": "Halo SELAMATMOTORPLARA, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih."
+  }
+}

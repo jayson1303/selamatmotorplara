@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin | SELAMATMOTORPLARA</title>
+  
+  <link rel="icon" type="image/png" href="../assets/img/logo/logo-transparent.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card">
+    <div class="login-header">
+      <img src="../assets/img/logo/logo-transparent.png" alt="Logo Honda" class="login-logo" onerror="this.src='../assets/img/logo/logo.png'">
+      <h1 class="login-title">SELAMATMOTORPLARA</h1>
+      <p class="login-sub">Portal Dashboard Administrator</p>
+    </div>
+
+    <!-- Alert Box -->
+    <div class="login-alert" id="login-alert">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span id="login-alert-text">Email atau password salah!</span>
+    </div>
+
+    <!-- Login Form -->
+    <form id="admin-login-form">
+      <div class="form-group">
+        <label for="admin-email" class="form-label">Email Administrator</label>
+        <div class="input-with-icon">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="admin-email" class="form-control" placeholder="andra@admin.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="admin-password" class="form-label">Kata Sandi (Password)</label>
+        <div class="input-with-icon" style="position: relative;">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required autocomplete="current-password" style="padding-right: 40px;">
+          <button type="button" id="btn-toggle-pwd" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94A3B8; cursor: pointer; padding: 4px;" aria-label="Tampilkan Kata Sandi">
+            <i class="fa-regular fa-eye" id="toggle-pwd-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.82rem; color: #64748B;">
+        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+          <input type="checkbox" id="admin-remember" checked style="accent-color: #E60012;">
+          Ingat email saya
+        </label>
+      </div>
+
+      <button type="submit" class="btn-admin-submit" id="btn-login">
+        <span id="btn-login-text"><i class="fa-solid fa-right-to-bracket"></i> Masuk ke Dashboard</span>
+        <i class="fa-solid fa-spinner fa-spin" id="btn-login-spinner" style="display: none;"></i>
+      </button>
+    </form>
+
+    <div class="login-footer-links">
+      <a href="../index.html" class="login-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Halaman Utama Dealer
+      </a>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin-auth.js"></script>
+</body>
+</html>
