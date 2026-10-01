@@ -1934,3 +1934,37 @@ body { background:#fbfaf8; }
 .floating-wa-btn { box-shadow:0 8px 25px rgba(37,211,102,.24); }
 @media(max-width:900px) { .hero-container { grid-template-columns:1fr .8fr; gap:3%; } .hero-promo-img { height:280px; } .promo-feature-grid { grid-template-columns:1fr; gap:34px; } }
 @media(max-width:700px) { .hero-section,.hero-container { min-height:auto; } .hero-container { display:flex; flex-direction:column; align-items:stretch; gap:34px; padding-top:72px; padding-bottom:50px; } .hero-content { position:relative; z-index:2; } .hero-promo-wrapper { width:78%; max-width:390px; margin:0 auto; } .hero-promo-img { height:230px; } .service-ribbon-grid { grid-template-columns:1fr; gap:14px; } .service-ribbon-grid>div,.service-ribbon-grid>div:first-child { border:0; padding:6px 0; } .section { padding:66px 0; } .promo-feature-section { padding:66px 0; } .promo-feature-cards { grid-template-columns:1fr; } }
+
+/* Extend the charcoal background used by the help section across the site. */
+:root { --bg-body:#282a27; --bg-card:#353733; --bg-surface:#30322f; --text-main:#f3f2ee; --text-muted:#c3c4bd; --text-light:#a7a9a1; --border-color:#464842; }
+body { background:#282a27; color:#f3f2ee; }
+.site-header { background:rgba(40,42,39,.97); border-bottom-color:#464842; }
+.brand-title,.nav-link { color:#f3f2ee; }
+.brand-sub,.section-desc { color:#c3c4bd; }
+.mobile-menu-drawer { background:#282a27; border-color:#464842; }
+.mobile-nav-link { color:#f3f2ee; }
+.service-ribbon,.testimonials-section,.about-section,.contact-section { background:#282a27; }
+.service-ribbon { border-color:#464842; }
+.service-ribbon-grid>div { border-color:#464842; }
+.service-ribbon-grid strong,.section-title,.about-content,.contact-text-box h4,.social-links-title { color:#f3f2ee; }
+.service-ribbon-grid small { color:#b9bbb3; }
+.section-title span { color:#ed9386; }
+.filter-container { color:#f3f2ee; }
+.category-tabs .tab-btn { background:#353733; color:#dfdfd9; border:1px solid #464842; }
+.category-tabs .tab-btn.active { background:#b63229; color:#fff; border-color:#b63229; }
+.search-box,.search-input { background:#353733; color:#fff; border-color:#51534d; }
+.search-input::placeholder { color:#b0b1aa; }
+.about-advantages-grid .adv-card,.contact-card-item,.social-links-box { background:#353733; border-color:#464842; color:#f3f2ee; }
+.adv-info h4,.adv-info p,.contact-text-box p { color:#e0e0da; }
+.adv-icon { background:#4b3532; color:#f0a397; }
+.testi-card { background:#353733; border-color:#464842; }
+.testi-author-name,.testi-comment { color:#f3f2ee; }
+.testi-author-city { color:#c3c4bd; }
+.contact-map-col { border:1px solid #464842; }
+.footer-bottom { color:#c3c4bd; }
+.section-tag { color:#ef998b; }
+.section-desc { color:#c3c4bd; }
+.product-card { background:#fff; color:#232522; }
+.product-card .product-name { color:#232522; }
+.modal-box { color:#1e293b; }
+@media(max-width:767px) { .site-header .brand-title { color:#f3f2ee; } }
