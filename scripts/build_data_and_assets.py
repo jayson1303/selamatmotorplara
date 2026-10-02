@@ -39,10 +39,10 @@ if os.path.exists(about_src):
 # 6. Copy Testimonials Images and generate seed-testimonials.json
 testi_files = sorted([f for f in os.listdir('testimoni') if f.lower().endswith(('.jpg', '.jpeg', '.png'))])
 testi_data = [
-    {"name": "Budi Santoso", "rating": 5, "comment": "Pelayanan di SELAMATMOTORPLARA sangat ramah dan proses kredit cepat tanpa ribet! Sehari langsung acc dan motor diantar ke rumah."},
+    {"name": "Budi Santoso", "rating": 5, "comment": "Pelayanan di ANDRASELAMATMOTOR sangat ramah dan proses kredit cepat tanpa ribet! Sehari langsung acc dan motor diantar ke rumah."},
     {"name": "Siti Nurhaliza", "rating": 5, "comment": "Beli Honda Scoopy baru disini dapat promo DP termurah se-Palabuhanratu. Salesnya sangat membantu dan komunikatif via WhatsApp."},
     {"name": "Ahmad Fauzi", "rating": 5, "comment": "Alhamdulillah ambil Honda PCX 160 prosesnya sangat cepat dan transparan. Unit datang tepat waktu dan surat-surat aman."},
-    {"name": "Dewi Sartika", "rating": 5, "comment": "Rekomendasi dealer Honda terbaik di Palabuhanratu! Pelayanan aftersales juga memuaskan. Sukses selalu SELAMATMOTORPLARA!"},
+    {"name": "Dewi Sartika", "rating": 5, "comment": "Rekomendasi dealer Honda terbaik di Palabuhanratu! Pelayanan aftersales juga memuaskan. Sukses selalu ANDRASELAMATMOTOR!"},
     {"name": "Rian Hidayat", "rating": 5, "comment": "DP ringan angsuran pas di kantong. Terima kasih mas sales sudah dibantu prosesnya sampai tuntas."},
     {"name": "Endang Supriatna", "rating": 5, "comment": "Mantap pisan pelayananna, dealer resmi terpercaya di Palabuhanratu. Rekomen buat warga Sukabumi dan sekitarnya."},
     {"name": "Fitri Handayani", "rating": 5, "comment": "Proses mudah, syarat cuma KTP dan KK, langsung diproses cepat. Motor BeAT-nya mulus pisan."},
@@ -422,7 +422,7 @@ for folder, (sheet, display_name, cat) in mapping.items():
 
     # 5. Clean ID & Description
     prod_id = re.sub(r'[^a-z0-9]+', '-', folder.lower()).strip('-')
-    desc = f"{display_name} hadir dengan desain modern, mesin bertenaga dan irit bahan bakar, serta kenyamanan berkendara optimal untuk sehari-hari. Bergaransi resmi Astra Honda Motor dengan kemudahan servis di dealer resmi SELAMATMOTORPLARA."
+    desc = f"{display_name} hadir dengan desain modern, mesin bertenaga dan irit bahan bakar, serta kenyamanan berkendara optimal untuk sehari-hari. Bergaransi resmi Astra Honda Motor dengan kemudahan servis di dealer resmi ANDRASELAMATMOTOR."
 
     products.append({
         "id": prod_id,

@@ -1,4 +1,4 @@
-# SELAMATMOTORPLARA
+# ANDRASELAMATMOTOR
 
 Website dealer sepeda motor Honda Palabuhanratu. Situs statis HTML, CSS, dan JavaScript dengan katalog produk, simulasi kredit, dan dashboard admin.
 
@@ -9,7 +9,7 @@ Website dealer sepeda motor Honda Palabuhanratu. Situs statis HTML, CSS, dan Jav
 - Authentication: Email/Password, akun admin `andra@admin.com`
 - Koleksi/dokumen yang digunakan: `products`, `testimonials`, `settings/contact`, `settings/waTemplate`, `hero/main`, dan `about/main`.
 
-Lengkapi `apiKey`, `authDomain`, `storageBucket`, `messagingSenderId`, dan `appId` di `js/firebase-config.js` menggunakan Firebase Console → Project settings → Your apps. Nilainya belum tersedia di project ini, jadi koneksi Firestore, Storage, dan Authentication belum aktif hingga konfigurasi tersebut ditambahkan. Jangan menggunakan kredensial project lama atau menyimpan password admin di source code.
+Firebase Web App telah dikonfigurasi di `js/firebase-config.js` untuk project `selamatmotorplara-cb4d4`. Jangan menggunakan kredensial project lama atau menyimpan password admin di source code.
 
 Deploy rules dari `firestore.rules` dan `storage.rules`. Konten publik dapat dibaca pengunjung; operasi tulis hanya tersedia untuk user Firebase Authentication dengan email `andra@admin.com`.
 

@@ -1,11 +1,11 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // product-detail.js - Logic Modal Detail Produk + Simulasi Kredit + WhatsApp
 // ==========================================================================
 
 let currentProduct = null;
 let currentColor = null;
-let currentWaTemplate = "Halo SELAMATMOTORPLARA, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih.";
+let currentWaTemplate = "Halo ANDRASELAMATMOTOR, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih.";
 let currentContact = {
   whatsappNumber: "",
   whatsappLink: "https://wa.me/6285715787494"

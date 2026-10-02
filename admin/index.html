@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Admin | SELAMATMOTORPLARA</title>
+  <title>Dashboard Admin | ANDRASELAMATMOTOR</title>
   
   <link rel="icon" type="image/png" href="../assets/img/logo/logo-transparent.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -20,7 +20,7 @@
       <div class="sidebar-header">
         <img src="../assets/img/logo/logo-transparent.png" alt="Logo" class="sidebar-logo" onerror="this.src='../assets/img/logo/logo.png'">
         <div>
-          <div class="sidebar-brand-name">APAI SELAMAT</div>
+          <div class="sidebar-brand-name">ANDRASELAMATMOTOR</div>
           <div class="sidebar-brand-sub">Admin Panel</div>
         </div>
       </div>
@@ -171,7 +171,7 @@
               <h3 class="admin-card-title"><i class="fa-solid fa-circle-info"></i> Petunjuk Pengelolaan Data Dealer</h3>
             </div>
             <div style="font-size: 0.9rem; color: #475569; line-height: 1.7;">
-              <p>Selamat datang di Dashboard Admin <strong>SELAMATMOTORPLARA</strong>. Semua data yang Anda ubah di sini akan langsung terhubung ke database <strong>Google Firebase (Firestore & Storage)</strong> dan otomatis diperbarui di landing page dealer tanpa perlu edit kode HTML.</p>
+              <p>Selamat datang di Dashboard Admin <strong>ANDRASELAMATMOTOR</strong>. Semua data yang Anda ubah di sini akan langsung terhubung ke database <strong>Google Firebase (Firestore & Storage)</strong> dan otomatis diperbarui di landing page dealer tanpa perlu edit kode HTML.</p>
               <ul style="margin: 12px 0 0 20px;">
                 <li><strong>Kelola Motor & Kredit:</strong> Tambah varian warna motor, upload foto motor, atur harga cash, dan atur tabel simulasi DP/Tenor/Cicilan.</li>
                 <li><strong>Fitur Import:</strong> Anda dapat mengimpor file Excel <code>PL JULI 2026 DP BESAR.xls</code> atau menginisialisasi ke-45 motor sekaligus dengan 1 klik!</li>
@@ -252,7 +252,7 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div class="form-group">
                   <label for="hero-input-title" class="form-label">Judul Utama Hero (Baris 1)</label>
-                  <input type="text" id="hero-input-title" class="form-control" required placeholder="SELAMATMOTORPLARA">
+                  <input type="text" id="hero-input-title" class="form-control" required placeholder="ANDRASELAMATMOTOR">
                 </div>
 
                 <div class="form-group">
@@ -332,7 +332,7 @@
             <form id="form-about">
               <div class="form-group">
                 <label for="about-input-title" class="form-label">Judul Bagian</label>
-                <input type="text" id="about-input-title" class="form-control" required placeholder="Dealer Resmi Honda SELAMATMOTORPLARA">
+                <input type="text" id="about-input-title" class="form-control" required placeholder="Dealer Resmi Honda ANDRASELAMATMOTOR">
               </div>
 
               <div class="form-group">
@@ -431,7 +431,7 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
                 <div class="form-group">
                   <label for="contact-input-ig" class="form-label"><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> Instagram</label>
-                  <input type="text" id="contact-input-ig" class="form-control" placeholder="https://www.instagram.com/apai_selamatmotorpelabuhanratu">
+                  <input type="text" id="contact-input-ig" class="form-control" placeholder="https://www.instagram.com/el_premmm?stkn=MW5paHpodGdqMDI5MQ==">
                 </div>
 
                 <div class="form-group">
@@ -762,6 +762,7 @@
 
   <!-- Admin Application Bootstrapper -->
   <script type="module">
+    import { firebaseConfigured } from "../js/firebase-config.js";
     import "./js/admin-auth.js";
     import { initAdminProducts } from "./js/admin-products.js";
     import { initAdminHero } from "./js/admin-hero.js";
@@ -827,6 +828,10 @@
     }
 
     async function bootAdminApp() {
+      if (!firebaseConfigured) {
+        console.warn("Admin Firestore features are disabled until Firebase Web configuration is complete.");
+        return;
+      }
       bindAdminEvents();
 
       // Initialize all admin subsystems safely

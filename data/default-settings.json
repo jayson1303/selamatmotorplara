@@ -10,8 +10,8 @@
     "ctaText": "Lihat Produk Kami"
   },
   "about": {
-    "title": "SELAMATMOTORPLARA",
-    "deskripsi": "SELAMATMOTORPLARA membantu warga Palabuhanratu dan sekitarnya memilih sepeda motor Honda dengan informasi yang jelas dan layanan yang dekat.",
+    "title": "ANDRASELAMATMOTOR",
+    "deskripsi": "ANDRASELAMATMOTOR membantu warga Palabuhanratu dan sekitarnya memilih sepeda motor Honda dengan informasi yang jelas dan layanan yang dekat.",
     "foto": "assets/img/about/about-selamatmotorplara.jpeg",
     "keunggulan": [
       {
@@ -47,6 +47,6 @@
     "googleMapsEmbed": "https://maps.google.com/maps?q=Pelabuhanratu%20Sukabumi&t=&z=13&ie=UTF8&iwloc=&output=embed"
   },
   "waTemplate": {
-    "template": "Halo SELAMATMOTORPLARA, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih."
+    "template": "Halo ANDRASELAMATMOTOR, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih."
   }
 }

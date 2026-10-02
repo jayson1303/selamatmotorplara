@@ -1,5 +1,5 @@
 // Firebase Configuration & Initialization
-// SELAMATMOTORPLARA Firebase configuration.
+// ANDRASELAMATMOTOR Firebase configuration.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { 
   getFirestore, 
@@ -30,29 +30,32 @@ import {
   onAuthStateChanged,
   sendPasswordResetEmail 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-// Add the remaining values from Firebase Console > Project settings > Your apps.
-// Never reuse credentials from the previous business project.
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
+  apiKey: "AIzaSyCLf5k3wtewmB6o4imJ9OdssabGgJ9jrWc",
+  authDomain: "selamatmotorplara-cb4d4.firebaseapp.com",
   projectId: "selamatmotorplara-cb4d4",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  storageBucket: "selamatmotorplara-cb4d4.firebasestorage.app",
+  messagingSenderId: "701135921057",
+  appId: "1:701135921057:web:904c61a21af232d67bb5e0",
+  measurementId: "G-7B4LG8FFGC"
 };
 
-// Initialize Firebase
-const firebaseConfigured = Object.entries(firebaseConfig)
-  .filter(([key]) => key !== "measurementId")
-  .every(([, value]) => Boolean(value));
-const app = firebaseConfigured ? initializeApp(firebaseConfig) : null;
-const db = app ? getFirestore(app) : null;
-const storage = app ? getStorage(app) : null;
-const auth = app ? getAuth(app) : null;
+const firebaseConfigMissingKeys = Object.entries(firebaseConfig)
+  .filter(([key, value]) => key !== "measurementId" && !value)
+  .map(([key]) => key);
+const firebaseConfigured = firebaseConfigMissingKeys.length === 0;
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+const analytics = getAnalytics(app);
 
 export { 
   app, 
+  analytics,
   db, 
   storage, 
   auth, 
@@ -78,4 +81,4 @@ export {
   sendPasswordResetEmail 
 };
 
-export { firebaseConfigured, firebaseConfig };
+export { firebaseConfigured, firebaseConfig, firebaseConfigMissingKeys };

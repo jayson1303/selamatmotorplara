@@ -1,5 +1,5 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // image-utils.js - Image Compression & Robust Firebase Storage / Base64 Fallback
 // ==========================================================================
 

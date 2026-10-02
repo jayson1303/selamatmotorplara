@@ -1,5 +1,5 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // admin-auth.js - Otentikasi Admin Firebase
 // ==========================================================================
 
@@ -9,7 +9,7 @@ import {
   signOut, 
   onAuthStateChanged 
 } from "../../js/firebase-config.js";
-import { firebaseConfigured } from "../../js/firebase-config.js";
+import { firebaseConfigured, firebaseConfigMissingKeys } from "../../js/firebase-config.js";
 
 import { adminConfirm } from "./admin-dialogs.js";
 
@@ -47,8 +47,10 @@ if (togglePwdBtn && pwdInput) {
 if (!firebaseConfigured) {
   const alertBox = document.getElementById("login-alert");
   const alertText = document.getElementById("login-alert-text");
-  if (alertBox && alertText) {
-    alertText.textContent = "Konfigurasi Firebase Web belum lengkap. Lengkapi dari Firebase Console project selamatmotorplara-cb4d4.";
+  if (!isLoginPage) {
+    window.location.replace("login.html");
+  } else if (alertBox && alertText) {
+    alertText.textContent = `Firebase Web app selamatmotorplara-cb4d4 belum lengkap. Isi nilai ${firebaseConfigMissingKeys.join(", ")} di js/firebase-config.js dari Firebase Console.`;
     alertBox.style.display = "flex";
   }
 }
@@ -108,20 +110,23 @@ if (loginForm && auth) {
       btnText.style.display = "inline-block";
       btnSpinner.style.display = "none";
 
-      let msg = "Terjadi kesalahan saat masuk. Silakan coba lagi.";
-      if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password" || err.code === "auth/user-not-found") {
-        msg = "Email atau password yang Anda masukkan salah. Pastikan email dan password sesuai yang terdaftar di Firebase.";
-      } else if (err.code === "auth/invalid-email") {
-        msg = "Format email tidak valid. Periksa penulisan email Anda.";
-      } else if (err.code === "auth/user-disabled") {
-        msg = "Akun administrator ini dinonaktifkan oleh sistem.";
-      } else if (err.code === "auth/too-many-requests") {
-        msg = "Terlalu banyak percobaan gagal. Silakan tunggu beberapa saat lagi.";
-      } else if (err.code === "auth/network-request-failed") {
-        msg = "Gagal terhubung ke Firebase. Periksa koneksi internet Anda.";
-      } else if (err.message) {
-        msg = err.message;
-      }
+      const authErrorMessages = {
+        "auth/invalid-credential": "Email atau password tidak cocok. Firebase menyamarkan kedua kasus ini sebagai kredensial tidak valid jika perlindungan pencarian email aktif.",
+        "auth/user-not-found": "Email ini belum terdaftar sebagai pengguna Firebase Authentication pada project ANDRASELAMATMOTOR.",
+        "auth/wrong-password": "Password salah untuk akun Firebase Authentication ini.",
+        "auth/invalid-email": "Format email tidak valid. Periksa kembali alamat email.",
+        "auth/user-disabled": "Akun Firebase Authentication ini dinonaktifkan.",
+        "auth/too-many-requests": "Terlalu banyak percobaan login. Tunggu beberapa saat sebelum mencoba lagi.",
+        "auth/network-request-failed": "Tidak dapat menghubungi Firebase Authentication. Periksa koneksi internet dan coba lagi.",
+        "auth/invalid-api-key": "Konfigurasi Firebase tidak valid: apiKey ditolak. Pastikan Web App memakai project selamatmotorplara-cb4d4.",
+        "auth/operation-not-allowed": "Provider Email/Password belum diaktifkan di Firebase Console untuk project selamatmotorplara-cb4d4.",
+        "auth/unauthorized-domain": "Domain website belum diizinkan untuk Firebase Authentication. Tambahkan domain ini di Authentication > Settings > Authorized domains.",
+        "auth/app-not-authorized": "Firebase menolak aplikasi dari domain ini. Periksa Authorized domains dan konfigurasi Web App.",
+        "auth/configuration-not-found": "Konfigurasi Firebase Authentication tidak ditemukan pada project selamatmotorplara-cb4d4."
+      };
+      const errorCode = err?.code || "auth/unknown";
+      const msg = authErrorMessages[errorCode]
+        || `Login Firebase gagal (${errorCode}): ${err?.message || "Terjadi kesalahan yang tidak diketahui."}`;
 
       alertText.textContent = msg;
       alertBox.style.display = "flex";
@@ -134,7 +139,7 @@ const logoutBtn = document.getElementById("btn-logout");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     const confirmed = await adminConfirm(
-      "Apakah Anda yakin ingin keluar dari Dashboard Administrator SELAMATMOTORPLARA?",
+      "Apakah Anda yakin ingin keluar dari Dashboard Administrator ANDRASELAMATMOTOR?",
       "Konfirmasi Logout",
       "warning",
       "Ya, Keluar",

@@ -1,5 +1,5 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // admin-contact.js - Kelola Kontak, Sosial Media & Template WhatsApp
 // ==========================================================================
 
@@ -63,7 +63,7 @@ async function loadContactAndTemplateData() {
 
     const templateInput = document.getElementById("template-input-text");
     if (templateInput) {
-      templateInput.value = templateData.template || "Halo SELAMATMOTORPLARA, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih.";
+      templateInput.value = templateData.template || "Halo ANDRASELAMATMOTOR, saya tertarik dengan:\nMotor: {namaMotor}\nWarna: {warna}\nSimulasi Kredit: DP {dp} - Tenor {tenor} bulan - Cicilan {cicilan}/bulan\nMohon info lebih lanjut. Terima kasih.";
       updatePreview(templateInput.value);
     }
 

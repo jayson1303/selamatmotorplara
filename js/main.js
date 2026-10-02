@@ -1,5 +1,5 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // main.js - Rendering Landing Page dari Firestore dengan Fallback Cerdas
 // ==========================================================================
 
@@ -198,14 +198,14 @@ function initPromoCarousel(images, image) {
     image.classList.remove("is-active");
     window.setTimeout(() => {
       image.src = images[activeIndex];
-      image.alt = `Foto promo ${activeIndex + 1} SELAMATMOTORPLARA`;
+      image.alt = `Foto promo ${activeIndex + 1} ANDRASELAMATMOTOR`;
       requestAnimationFrame(() => image.classList.add("is-active"));
     }, 160);
     renderDots();
   };
 
   image.src = images[0];
-  image.alt = "Foto promo 1 SELAMATMOTORPLARA";
+  image.alt = "Foto promo 1 ANDRASELAMATMOTOR";
   image.classList.add("is-active");
   if (prev) {
     prev.hidden = images.length < 2;
@@ -231,7 +231,7 @@ function renderAbout(about) {
 
   if (about.foto && aboutImg) aboutImg.src = about.foto;
   if (about.title && aboutTitle) {
-    aboutTitle.innerHTML = about.title.replace("SELAMATMOTORPLARA", "<span>SELAMATMOTORPLARA</span>");
+    aboutTitle.innerHTML = about.title.replace("ANDRASELAMATMOTOR", "<span>ANDRASELAMATMOTOR</span>");
   }
   if (about.deskripsi && aboutDesc) {
     aboutDesc.textContent = about.deskripsi;
@@ -440,6 +440,22 @@ function renderProducts() {
     const mainPhoto = (product.warna && product.warna.length > 0 && product.warna[0].foto) 
       ? product.warna[0].foto 
       : "assets/img/logo/logo.png";
+    const productSeriesKey = {
+      "adv series": "adv",
+      "beat series": "beat",
+      "pcx series": "pcx",
+      "vario series": "vario",
+      "scoopy series": "scoopy",
+      "stylo series": "stylo",
+      "genio series": "genio",
+      "supra series": "supra",
+      "revo series": "revo",
+      "cbr series": "cbr",
+      "cb150 series": "cb150",
+      "crf/off-road series": "crf-off-road",
+      "cb verza series": "cb-verza",
+      "forza series": "forza"
+    }[(product.kategori || "").trim().toLowerCase()];
 
     // Find minimum cicilan for badge
     let minCicilanBadge = "";
@@ -459,7 +475,8 @@ function renderProducts() {
     card.className = "product-card";
     card.innerHTML = `
       <span class="product-badge-cat">${product.kategori || "Honda"}</span>
-      <div class="product-img-box">
+      <div class="product-img-box"${productSeriesKey ? ` data-series="${productSeriesKey}"` : ""}>
+        ${productSeriesKey ? '<span class="product-series-flare" aria-hidden="true"></span>' : ""}
         <img src="${mainPhoto}" alt="${product.namaMotor}" class="product-img" loading="lazy" onerror="this.src='assets/img/logo/logo.png'">
       </div>
       <div class="product-body">

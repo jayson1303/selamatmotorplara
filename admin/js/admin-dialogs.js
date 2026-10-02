@@ -1,5 +1,5 @@
 // ==========================================================================
-// SELAMATMOTORPLARA
+// ANDRASELAMATMOTOR
 // admin-dialogs.js - Custom Modals for Alert, Confirm, Prompt & Generators
 // ==========================================================================
 
