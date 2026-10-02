@@ -43,6 +43,7 @@ export function openProductModal(product, waTemplate = null, contact = null) {
 
   const modal = document.getElementById("product-modal");
   const modalImg = document.getElementById("modal-main-img");
+  const modalImgBox = modalImg?.closest(".modal-main-img-box");
   const modalTitle = document.getElementById("modal-product-title");
   const modalCat = document.getElementById("modal-category-badge");
   const modalDesc = document.getElementById("modal-desc-box");
@@ -54,6 +55,28 @@ export function openProductModal(product, waTemplate = null, contact = null) {
   const modalColorSelected = document.getElementById("modal-selected-color");
 
   if (!modal) return;
+
+  const seriesKeyByCategory = {
+    "adv series": "adv",
+    "beat series": "beat",
+    "pcx series": "pcx",
+    "vario series": "vario",
+    "scoopy series": "scoopy",
+    "stylo series": "stylo",
+    "genio series": "genio",
+    "supra series": "supra",
+    "revo series": "revo",
+    "cbr series": "cbr",
+    "cb150 series": "cb150",
+    "crf/off-road series": "crf-off-road",
+    "cb verza series": "cb-verza",
+    "forza series": "forza"
+  };
+  const seriesKey = seriesKeyByCategory[(product.kategori || "").trim().toLowerCase()];
+  if (modalImgBox) {
+    if (seriesKey) modalImgBox.dataset.series = seriesKey;
+    else delete modalImgBox.dataset.series;
+  }
 
   // Set Basic Info
   modalTitle.textContent = product.namaMotor || "Sepeda Motor Honda";

@@ -2197,6 +2197,7 @@ body { background:#282a27; color:#f3f2ee; }
   .product-img-box[data-series]::before,
   .product-img-box[data-series]::after { animation:none; }
 }
+.modal-main-img-box[data-series] .modal-main-img { z-index:1; }
 
 /* Lighter neutral gray palette for a more open feel. */
 :root { --bg-body:#e6e7e5; --bg-card:#fff; --bg-surface:#f4f4f2; --text-main:#292a27; --text-muted:#666862; --text-light:#82847e; --border-color:#d2d4d0; }
